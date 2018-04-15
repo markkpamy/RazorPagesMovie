@@ -1,14 +1,26 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Text.Encodings.Web;
+using Microsoft.AspNetCore.Mvc;
 
 namespace RazorPagesMovie.Controllers
 {
     public class HelloWorldController : Controller
     {
-        // GET
+        // 
+        // GET: /HelloWorld/
+
         public IActionResult Index()
         {
-            return
-            View();
+            return View();
         }
+
+        // 
+        // GET: /HelloWorld/Welcome/ 
+
+        public IActionResult Welcome(string name, int numTimes = 1)
+        {
+            ViewData["Message"] = "Hello " + name;
+            ViewData["NumTimes"] = numTimes;
+
+            return View();        }
     }
 }
